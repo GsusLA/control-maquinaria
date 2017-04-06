@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">Control Maquinaria</string>
+
+    <!--Strings on Activities-->
+    <string name="action_iniciar_sesion">Iniciar Sesion</string>
+    <string name="prompt_usuario">Usuario</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="tittle_obra_text">Seleccionar Obra</string>
+    <string name="tittle_obra_button">Sincronizar</string>
+    <string name="title_activity_main">Menu de Opciones</string>
+    <string name="tittle_activity_actividad">Iniciar Actividad</string>
+    <string name="tittle_activity_actividades">Iniciar/Cerrar Actividades</string>
+    <string name="tittle_activity_cierre">Cerrar Actividad</string>
+    <string name="tittle_activity_iniciadas">Actividades Iniciadas</string>
+    <string name="tittle_activity_obra">Seleccionar Obra</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Cerrar Sesión</string>
+
+    <string name="url_login">http://172.20.73.187/api/authenticate</string>
+    <string name="url_logout">http://172.20.73.187/api/logout</string>
+    <string name="url_almacenes">http://172.20.73.187/api/almacenes</string>
+    <string name="url_sinc_actividad">http://172.20.73.187/api/</string>
+
+    <string name="error_field_required">Éste campo es requerido</string>
+    <string name="error_internet">Por favor habilite su conexión a Internet para poder iniciar sesión</string>
+    <string name="general_exception">Por favor verifique su conexión a internet e intentelo nuevamente</string>
+    <string name="error_sesion_datos">Error en los datos de Usuario y/o Contraseña</string>
+    <string name="error_guardar_db">Error en los datos de Usuario, Intente de nuevo.</string>
+    <string name="seleccionar_obra">favor de seleccionar una obra</string>
+    <string name="seleccionar_maquinaria">favor de seleccionar una Maquinaria</string>
+
+    <string name="request_permission">This sample needs camera permission.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+
+    <string-array name="array_tipo_hora">
+        <item>Seleccione un tipo de hora</item>
+        <item>Efectivas</item>
+        <item>Reparación Mayor</item>
+        <item>Reparación Menor</item>
+        <item>Mantenimiento</item>
+        <item>Ocio</item>
+        <item>Traslado</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
