@@ -252,7 +252,7 @@ public class ActividadesIniciadasActivity extends AppCompatActivity
     }
 
     /**
-     *  Tarea asincrona que llena el listview con los datos recuperados de las actividades recuperadas de la BD
+     *  Tarea que llena el listview con los datos de las actividades recuperadas de la BD
      */
     public class ListaAdapter extends ArrayAdapter<Actividades>{
         private int layoutResource;

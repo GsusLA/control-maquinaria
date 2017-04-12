@@ -1,30 +1,41 @@
 package mx.grupohi.almacenes.controlmaquinaria;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import mx.grupohi.almacenes.controlmaquinaria.Serializables.Actividades;
 import mx.grupohi.almacenes.controlmaquinaria.Serializables.Obra;
 import mx.grupohi.almacenes.controlmaquinaria.Serializables.Usuario;
 
 public class ObraActivity extends AppCompatActivity {
     private Button sincronizar;
+    private ListView listaObras;
     private ArrayList<Obra> obras;
     private Usuario usuario;
-    private Spinner selctObra;
     private SincronizacionObra sincronizacionObra;
     String token;
     private ProgressDialog mProgressDialog;
     private Obra seleccionada;
+    private AlertDialog mensajeObra;
 
 
     @Override
@@ -33,41 +44,46 @@ public class ObraActivity extends AppCompatActivity {
         setContentView(R.layout.activity_obra);
 
         sincronizacionObra = new SincronizacionObra(getApplicationContext());
+        listaObras = (ListView)findViewById(R.id.lv_obras);
+        sincronizar = (Button)findViewById(R.id.btn_obraSincronizar);
 
         obras = (ArrayList<Obra>)getIntent().getExtras().getSerializable("Obras");
         usuario = (Usuario)getIntent().getExtras().getSerializable("Usuario");
         token = getIntent().getStringExtra("token");
-        selctObra = (Spinner)findViewById(R.id.sp_obraObras);
 
         int size = obras!=null?obras.size():0;
 
-        String[] arrayObras = new String[size + 1];
-        arrayObras[0] = "Seleccionar Obra";
-        Obra obra;
-        for(int i = 0; i < size;i++){
-            obra = obras.get(i);
-            arrayObras[i+1] = obra.getIdObra() + " " + obra.getNombre();
+        ListaAdapter adaptador = new ListaAdapter(getApplicationContext(), R.layout.obras_item, obras);
+        listaObras.setAdapter(adaptador);
+
+        if(size > 1){
+            sincronizar.setText("ACEPTAR");
+            // lanzar alertdialog avisando que tiene mas de dos obras asignadas
+            mensajeObra = new AlertDialog.Builder(ObraActivity.this)
+                    .setTitle("Sincronización de Obras")
+                    .setMessage("Ud. tiene más de una obra asignada\nPor favor contacte al administrador de obras para mayores detalles. ")
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            mensajeObra.dismiss();
+                        }
+                    })
+                    .setIcon(R.drawable.info_alert)
+                    .setCancelable(false)
+                    .show();
         }
 
-        final ArrayAdapter<String> a = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, arrayObras);
-        a.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-
-        selctObra.setAdapter(a);
 
 
-        sincronizar = (Button)findViewById(R.id.btn_obraSincronizar);
         sincronizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int seleccion = selctObra.getSelectedItemPosition();
-                if(seleccion == 0) {
-                    Message(getString(R.string.seleccionar_obra));
-                    return;
+                if(sincronizar.getText().equals("ACEPTAR")){
+                    finish();
+                }else{
+                    seleccionada = obras.get(0);
+                    new SincronizarObra().execute();
                 }
-                seleccionada = obras.get(seleccion-1);
-
-
-                new SincronizarObra().execute();
 
             }
         });
@@ -127,6 +143,42 @@ public class ObraActivity extends AppCompatActivity {
             }else{
                 Message(getString(R.string.general_exception));
             }
+        }
+    }
+
+    /**
+     * Tarea que llena el ListView con los datos de las obras que esten asignadas al usuario loggeado
+     */
+    private class ListaAdapter extends ArrayAdapter<Obra>{
+        private int layoutResource;
+        private ArrayList<Obra> obrasRec;
+
+        public ListaAdapter(Context context, int resource, ArrayList<Obra> objects) {
+            super(context, resource, objects);
+            this.layoutResource = resource;
+            this.obrasRec = objects;
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View view = convertView;
+
+            if (view == null) {
+                LayoutInflater layoutInflater = LayoutInflater.from(getContext());
+                view = layoutInflater.inflate(layoutResource, null);
+            }
+
+            Obra obraregistrada = obrasRec.get(position);
+
+            if(obraregistrada != null){
+                TextView obraId = (TextView) view.findViewById(R.id.tv_itemObraID);
+                TextView obraName = (TextView) view.findViewById(R.id.tv_itemObraNombre);
+
+                obraId.setText(obraregistrada.getIdObra() + "");
+                obraName.setText(obraregistrada.getNombre().toString());
+            }
+            return  view;
         }
     }
 }

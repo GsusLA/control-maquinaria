@@ -71,6 +71,7 @@
                     android:text="@string/action_iniciar_sesion"
                     android:textStyle="bold" />
             </android.support.design.widget.TextInputLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="100dp"

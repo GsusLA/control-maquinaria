@@ -210,6 +210,7 @@ public class LoginActivity extends AppCompatActivity {
                 usuario.setDescripcion(user.getString("nombre") + " " + user.getString("apaterno"));
                 usuario.setNombre_usuario(user.getString("usuario"));
                 usuario.setIdusuario(user.getInt("idusuario"));
+                usuario.setClave(pass);
                 usuario.setImei(Util.deviceImei(getApplicationContext()));
 
                 //manejar guardado de datos en la DB

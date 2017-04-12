@@ -51,6 +51,8 @@ public class CierreActividadesFragment extends Fragment {
     private Button guardar;
     private Button cancelar;
 
+    private ProcesosActividades procesosActividades;
+
 
 
     public CierreActividadesFragment() {
@@ -67,6 +69,8 @@ public class CierreActividadesFragment extends Fragment {
         Bundle bundle = this.getArguments();
         id_Actividad = bundle.getInt("idActividad");
         datos = bundle.getString("json");
+
+        procesosActividades = new ProcesosActividades(getActivity());
 
         tHora = (TextView)view.findViewById(R.id.tv_actividadesCierreTipoHora);
         turno = (TextView)view.findViewById(R.id.tv_actividadesCierreTurno);
@@ -112,7 +116,7 @@ public class CierreActividadesFragment extends Fragment {
                 dato.put("cantidad", Double.parseDouble(cantidadH.getText().toString()));
                 dato.put("observaciones", obserFinales + "Finales: " + observaciones.getText().toString());
 
-                if(new ProcesosActividades(getActivity()).guardarCierreActividades(dato, actId)){
+                if(procesosActividades.guardarCierreActividades(dato, actId)){
                     ((ActividadesActivity)getActivity()).spMaquinaria.setEnabled(true);
                     ((ActividadesActivity)getActivity()).spMaquinaria.setSelection(0);
                     ((ActividadesActivity)getActivity()).Message("Actividad cerrada correctamente.");

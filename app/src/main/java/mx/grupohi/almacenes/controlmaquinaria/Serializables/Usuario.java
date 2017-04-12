@@ -14,6 +14,7 @@ public class Usuario implements Serializable {
     private String nombre;
     private String usuario;
     private int idusuario;
+    private String clave;
 
     public Usuario(){}
 
@@ -47,5 +48,13 @@ public class Usuario implements Serializable {
 
     public void setIdusuario(int idusuario) {
         this.idusuario = idusuario;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 }
