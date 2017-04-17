@@ -46,6 +46,8 @@ public class CierreActivity extends AppCompatActivity
     private Button cancelar;
     private Button aprovar;
 
+    private String observText;
+
     ArrayList<Almacenes> actividades;
     ProcesosCierreFinal procesosCierreFinal;
     Actividad actividad;
@@ -94,7 +96,7 @@ public class CierreActivity extends AppCompatActivity
                         horoInicial.setText(actividad.getHorometro_inicial().toString());
                         kiloInicial.setText(actividad.getKilometraje_inicial().toString());
                         operador.setText(actividad.getOperador());
-                        observaciones.setText(actividad.getObservaciones());
+                        observText = "Iniciales: " + actividad.getObservaciones();
                         aprovar.setEnabled(true);
                     }
                 }else{
@@ -132,7 +134,7 @@ public class CierreActivity extends AppCompatActivity
                                 ContentValues dato = new ContentValues();
                                 dato.put("horometro_final", hFinal);
                                 dato.put("kilometraje_final", kFinal);
-                                dato.put("observaciones", observaciones.getText().toString());
+                                dato.put("observaciones", observText + " - Finales: " + observaciones.getText().toString());
                                 if (procesosCierreFinal.cerrarActividad(dato, aSelecto.getId())) {
                                     limpiarCampos();
                                     aprovar.setEnabled(false);

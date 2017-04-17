@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 
+import mx.grupohi.almacenes.controlmaquinaria.Serializables.Actividad;
 import mx.grupohi.almacenes.controlmaquinaria.Serializables.Almacenes;
 
 /**
@@ -79,5 +80,23 @@ public class ProcesosActividad {
     public boolean registrarActividad(ContentValues datos){
         db = db_maq.getWritableDatabase();
         return db.insert("reportes_actividad", null, datos) > -1;
+    }
+
+    public ArrayList<Actividad> listaActividad(){
+        ArrayList<Actividad> listActividad = new ArrayList<>();
+        Actividad actividad;
+        db = db_maq.getWritableDatabase();
+        Cursor c = db.rawQuery("select reportes_actividad.* from reportes_actividad where reportes_actividad.horometro_final is null;", null);
+        if(c != null && c.moveToFirst()){
+            do{
+                actividad = new Actividad();
+                actividad.setId(c.getInt(0));
+                actividad.setId_almacen(c.getInt(1));
+                actividad.setCreated_at(c.getString(9));
+                listActividad.add(actividad);
+            }while (c.moveToNext());
+            return listActividad;
+        }
+        return  null;
     }
 }

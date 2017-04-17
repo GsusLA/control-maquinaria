@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import mx.grupohi.almacenes.controlmaquinaria.Alarma.AlarmReciever;
 
@@ -27,7 +28,8 @@ public class ActividadesService extends Service {
 
     @Override
     public void onDestroy() {
-        alarmActividades.CancelAlarm(this);
+        Log.i("Main: ", "Servicio Cerrado");
+        alarmActividades.CancelSincAlarm(this);
         super.onDestroy();
     }
     @Nullable

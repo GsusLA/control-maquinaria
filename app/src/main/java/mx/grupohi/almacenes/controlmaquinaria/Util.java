@@ -153,7 +153,7 @@ public class Util {
      *  Obtiene la hora actual del sistema operativo
      * @return String con la hora actual en formato HH:mm AM/PM
      */
-    static String getHora(){
+    public static String getHora(){
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm aa");
         String currentDateandTime = sdf.format(new Date());
         return currentDateandTime;
@@ -167,5 +167,62 @@ public class Util {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm aa" , new Locale("es","ES"));
         String currentDateandTime = sdf.format(new Date());
         return currentDateandTime;
+    }
+
+    /**
+     * Metodo que retorna la cantidad de horas entre dos cadenas de texto
+     * @param hActual string con el dato de la hora inicial
+     * @param hActividad string con el dato de la hora final
+     * @return la cantidad de horas entre los dos valores
+     */
+    static Double getDoubleHora(String hActual, String hActividad){
+        String[] init = hActividad.split(":| ");
+        String[] fin = hActual.split(":| ");
+
+        int horasInicio = Integer.parseInt(init[0]);
+        int minutosInicio = Integer.parseInt(init[1]);
+
+        int horasFin = Integer.parseInt(fin[0]);
+        int minutosFin = Integer.parseInt(fin[1]);
+
+        int horasTot = 0;
+        int minutosTot = 0;
+
+        if(horasInicio > horasFin){
+            horasTot = (horasFin + 24) - horasInicio;
+        }else{
+            horasTot = horasFin - horasInicio;
+        }
+
+        if(minutosInicio > minutosFin){
+            horasTot-= 1;
+            minutosTot = (minutosFin + 60) - minutosInicio;
+        }else{
+            minutosTot = minutosFin - minutosInicio;
+        }
+
+        if(minutosTot < 10)
+            return Double.parseDouble(horasTot+".0"+minutosTot);
+        if(minutosTot == 0)
+            return Double.parseDouble(horasTot+".01");
+
+        return Double.parseDouble(horasTot+"."+minutosTot);
+    }
+
+    static String getDatoMaquinaria(Context context, int id){
+        DBMaqSqlite db_sca = new DBMaqSqlite(context, "maq", null, 1);
+        SQLiteDatabase db = db_sca.getWritableDatabase();
+        Cursor c = db.rawQuery("select * from almacenes where id = " + id, null);
+        try{
+            if(c != null && c.moveToFirst()){
+                return "" + c.getInt(1) + "-" + c.getString(2);
+            }
+        }finally {
+            assert c != null;
+            c.close();
+            db.close();
+        }
+
+        return "";
     }
 }

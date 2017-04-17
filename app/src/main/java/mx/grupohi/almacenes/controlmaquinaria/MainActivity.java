@@ -1,13 +1,18 @@
 package mx.grupohi.almacenes.controlmaquinaria;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
+import android.app.TaskStackBuilder;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
@@ -30,10 +35,14 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import mx.grupohi.almacenes.controlmaquinaria.Alarma.AlarmReciever;
+import mx.grupohi.almacenes.controlmaquinaria.Alarma.NotificacionActividad;
+import mx.grupohi.almacenes.controlmaquinaria.Serializables.Actividad;
 import mx.grupohi.almacenes.controlmaquinaria.Serializables.Usuario;
 import mx.grupohi.almacenes.controlmaquinaria.TareasAsync.SincActividades;
 import mx.grupohi.almacenes.controlmaquinaria.TareasAsync.SincCatalogos;
@@ -43,6 +52,7 @@ public class MainActivity extends AppCompatActivity
 
     ImageButton actividad, actividades, iniciadas, cierre;
     private Timer timer;
+    private Timer timerNot;
     private static final int INICIO =0;
     private static final int ACTIVIDAD = 1;
     private static final int ACTIVIDADES = 2;
@@ -50,11 +60,15 @@ public class MainActivity extends AppCompatActivity
     private static final int CIERRE = 4;
     private static final int CATALOGOS = 6;
 
+    private static final int NOTIFICATION_ID = 1;
+
     private static final int token_not_provided = 400;
     private static final int token_invalid = 401;
 
     private Usuario usuario;
     private AlarmReciever alarmaSesion;
+
+    private NotificationManager mNotificationManager;
 
 
     @Override
@@ -65,7 +79,9 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         alarmaSesion = new AlarmReciever();
+        alarmaSesion.setSincAlarm(this);
         reiniciarTimerSesion();
+        notificacionActividad();
         Intent serv = new Intent(this, ActividadesService.class);
         startService(serv);
 
@@ -128,6 +144,12 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+    public void notificacionActividad(){
+        timerNot = new Timer();
+        Log.i("Main ", "Invocando Revisión de Noticicación.");
+        NotificationTimer notificationTimer = new NotificationTimer();
+        timerNot.scheduleAtFixedRate(notificationTimer, 1000 * 60, 1000 * 60 * 3); // Inicia al momento de entrar al menu de opciones y se ejecuta cada 5 minutos
+    }
 
     /**
      * Inicia los botones de las opciones del menu principal
@@ -357,6 +379,59 @@ public class MainActivity extends AppCompatActivity
             startActivityForResult(intent, 2);
 
         }
+    }
+
+    private class NotificationTimer extends TimerTask{
+        List<String> actividadNotif = new ArrayList<>();
+        ProcesosActividad procesosActividad = new ProcesosActividad(MainActivity.this);
+        @Override
+        public void run() {
+            ArrayList<Actividad> listActividad = procesosActividad.listaActividad();
+            if(listActividad != null) {
+                actividadNotif.clear();
+                for (Actividad actividad : listActividad) {
+                    String[] creado = actividad.getCreated_at().split(" ");
+                    Double hActividad = Util.getDoubleHora(Util.getHora(), creado[1]);
+                    if (hActividad > 0.03) {
+                        actividadNotif.add(Util.getDatoMaquinaria(MainActivity.this, actividad.getId_almacen()));
+                    }
+                }
+                if (actividadNotif.size() > 0) {
+                    notificacion(actividadNotif);
+                }
+            }
+        }
+
+        private void notificacion(List<String> maquinas){
+            NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(MainActivity.this);
+            mBuilder.setContentTitle("Hermes");
+            mBuilder.setContentText("Notificación de Actividad");
+            mBuilder.setTicker("New Message Alert!");
+            mBuilder.setSmallIcon(R.mipmap.ic_logo);
+
+            NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
+            inboxStyle.setBigContentTitle("Maquinaria Activa");
+            inboxStyle.addLine("Maquinaria por cumplir 24 hr Activa");
+            for (String maquina: maquinas) {
+                inboxStyle.addLine(maquina);
+            }
+            mBuilder.setStyle(inboxStyle);
+            Intent resultIntent = new Intent(MainActivity.this, NotificacionActividad.class);
+
+            TaskStackBuilder stackBuilder = TaskStackBuilder.create(MainActivity.this);
+            stackBuilder.addParentStack(NotificacionActividad.class);
+
+   /* Adds the Intent that starts the Activity to the top of the stack */
+            stackBuilder.addNextIntent(resultIntent);
+            PendingIntent resultPendingIntent =stackBuilder.getPendingIntent(0,PendingIntent.FLAG_UPDATE_CURRENT);
+
+            //mBuilder.setContentIntent(resultPendingIntent);
+            mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+   /* notificationID allows you to update the notification later on. */
+            mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+        }
+
     }
 
 }

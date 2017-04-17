@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import mx.grupohi.almacenes.controlmaquinaria.TareasAsync.SincActividades;
 
@@ -16,7 +17,7 @@ import mx.grupohi.almacenes.controlmaquinaria.TareasAsync.SincActividades;
 public class AlarmReciever extends BroadcastReceiver {
     public static final String ID_KEY = "id";
     public static final int SINC_ACTIVIDADES = 0;
-    public static final int VALIDAR_SESION = 1;
+    public static final int NOTIFICACION_ACTIVIDAD = 1;
 
     /**
      * recibe el evento de la alarma programada e inicia las actividades programadas en la alarma
@@ -31,6 +32,7 @@ public class AlarmReciever extends BroadcastReceiver {
             case SINC_ACTIVIDADES:
                 // Sincronizar la informacion en linea
                 System.out.println("Sincronizacion Actividades: ");
+                Log.i("Main: ", "Sincronizacion Actividades: ");
                 new SincActividades(context).execute();
                 break;
         }
@@ -41,7 +43,7 @@ public class AlarmReciever extends BroadcastReceiver {
      * @param context
      */
     public void setSincAlarm(Context context){
-        Long time = (long)2*60*60*1000;
+        Long time = (long)5 * 60*1000;
 
         AlarmManager am=(AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(context, AlarmReciever.class);
@@ -52,14 +54,15 @@ public class AlarmReciever extends BroadcastReceiver {
     }
 
     /**
-     * Cancela la alarma programada
+     * Cancela la alarma programada de sincronización de actividades
      * @param context
      */
-    public void CancelAlarm(Context context)
+    public void CancelSincAlarm(Context context)
     {
         Intent intent = new Intent(context, AlarmReciever.class);
-        PendingIntent sender = PendingIntent.getBroadcast(context, VALIDAR_SESION, intent, 0);
+        PendingIntent sender = PendingIntent.getBroadcast(context, SINC_ACTIVIDADES, intent, 0);
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         alarmManager.cancel(sender);
     }
+
 }
