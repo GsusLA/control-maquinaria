@@ -14,11 +14,11 @@ public class DBMaqSqlite extends SQLiteOpenHelper {
     }
 
     private static String[] queries = new String[]{
-            "CREATE TABLE usuario (id INTEGER PRIMARY KEY AUTOINCREMENT, idusuario INTEGER, descripcion VARCHAR, nombre_usuario VARCHAR, clave VARCHAR, imei INT (12));",
+            "CREATE TABLE usuario (id INTEGER PRIMARY KEY AUTOINCREMENT, idusuario INTEGER, descripcion VARCHAR, nombre_usuario VARCHAR, clave VARCHAR, imei VARCHAR);",
             "CREATE TABLE obra (ID INTEGER PRIMARY KEY AUTOINCREMENT, idobra INTEGER, nombre TEXT, descripcion VARCHAR, base TEXT, token VARCHAR)",
             "CREATE TABLE almacenes (id INTEGER PRIMARY KEY AUTOINCREMENT, economico INTEGER, descripcion VARCHAR);",
-            "CREATE TABLE reportes_actividad (id INTEGER  PRIMARY KEY AUTOINCREMENT, id_almacen INTEGER, fecha DATE, horometro_inicial DOUBLE, horometro_final DOUBLE, kilometraje_inicial DOUBLE, kilometraje_final DOUBLE, operador VARCHAR, observaciones TEXT, created_at VARCHAR, creado_por VARCHAR, imei INT (12), estatus INTEGER);",
-            "CREATE TABLE actividades ( id INTEGER PRIMARY KEY AUTOINCREMENT, id_reporte INTEGER, clave_actividad VARCHAR, tipo_hora VARCHAR, turno INTEGER, hora_inicial STRING, hora_final STRING, cantidad DOUBLE, con_cargo_empresa VARCHAR, observaciones TEXT, created_at VARCHAR, creado_por VARCHAR, imei INT (12), estatus INTEGER);",
+            "CREATE TABLE reportes_actividad (id INTEGER  PRIMARY KEY AUTOINCREMENT, id_almacen INTEGER, fecha DATE, horometro_inicial DOUBLE, horometro_final DOUBLE, kilometraje_inicial INT, kilometraje_final INT, operador VARCHAR, observaciones TEXT, created_at VARCHAR, creado_por VARCHAR, imei VARCHAR, estatus INTEGER);",
+            "CREATE TABLE actividades ( id INTEGER PRIMARY KEY AUTOINCREMENT, id_reporte INTEGER, clave_actividad VARCHAR, tipo_hora VARCHAR, turno INTEGER, hora_inicial STRING, hora_final STRING, cantidad DOUBLE, con_cargo_empresa VARCHAR, observaciones TEXT, created_at VARCHAR, creado_por VARCHAR, imei VARCHAR, estatus INTEGER);",
             "CREATE TABLE conceptos ( id INTEGER PRIMARY KEY AUTOINCREMENT, descripcion VARCHAR, clave_concepto VARCHAR);"
     };
 

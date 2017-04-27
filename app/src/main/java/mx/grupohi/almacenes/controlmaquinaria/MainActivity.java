@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity
         timer = new Timer();
         Log.i("Main", "Invoking logout timer");
         LogOutTimerTask logoutTimeTask = new LogOutTimerTask();
-        timer.schedule(logoutTimeTask, 1000 * 60 * 15 );
+        timer.schedule(logoutTimeTask, 1000 * 60 * 30 );
     }
     public void cancelarTimer(){
         if (timer != null) {
@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity
         timerNot = new Timer();
         Log.i("Main ", "Invocando Revisión de Noticicación.");
         NotificationTimer notificationTimer = new NotificationTimer();
-        timerNot.scheduleAtFixedRate(notificationTimer, 1000 * 60, 1000 * 60 * 3); // Inicia al momento de entrar al menu de opciones y se ejecuta cada 5 minutos
+        timerNot.scheduleAtFixedRate(notificationTimer, 1000 * 60, 1000 * 60 * 30); // Inicia al momento de entrar al menu de opciones y se ejecuta cada 5 minutos
     }
 
     /**
@@ -321,8 +321,7 @@ public class MainActivity extends AppCompatActivity
             cSesion.setCancelable(false);
             cSesion.setCanceledOnTouchOutside(false);
 
-            values = new SincronizacionCatalogos(MainActivity.this);
-            dato = values.getDatosObra();
+            dato = Util.getDatosObra(MainActivity.this);
             token = dato.getAsString("token");
         }
 
@@ -381,6 +380,9 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+
+
+
     private class NotificationTimer extends TimerTask{
         List<String> actividadNotif = new ArrayList<>();
         ProcesosActividad procesosActividad = new ProcesosActividad(MainActivity.this);
@@ -392,7 +394,7 @@ public class MainActivity extends AppCompatActivity
                 for (Actividad actividad : listActividad) {
                     String[] creado = actividad.getCreated_at().split(" ");
                     Double hActividad = Util.getDoubleHora(Util.getHora(), creado[1]);
-                    if (hActividad > 0.03) {
+                    if (hActividad > 0.1) {
                         actividadNotif.add(Util.getDatoMaquinaria(MainActivity.this, actividad.getId_almacen()));
                     }
                 }

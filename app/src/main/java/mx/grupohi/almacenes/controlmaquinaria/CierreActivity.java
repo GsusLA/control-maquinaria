@@ -94,7 +94,7 @@ public class CierreActivity extends AppCompatActivity
                         actividad = procesosCierreFinal.getActividad(aSelecto.getId());
                         cantidad.setText(procesosCierreFinal.getHorasTotales().toString());
                         horoInicial.setText(actividad.getHorometro_inicial().toString());
-                        kiloInicial.setText(actividad.getKilometraje_inicial().toString());
+                        kiloInicial.setText(actividad.getKilometraje_inicial()+ "");
                         operador.setText(actividad.getOperador());
                         observText = "Iniciales: " + actividad.getObservaciones();
                         aprovar.setEnabled(true);
@@ -130,7 +130,7 @@ public class CierreActivity extends AppCompatActivity
                 if(validarCamposLlenos()){
                     if(hFinal > sumHoras){
                         if(cantTotal < 23.59) {
-                            if (kFinal > kInicia) {
+                            if (kFinal >= kInicia) {
                                 ContentValues dato = new ContentValues();
                                 dato.put("horometro_final", hFinal);
                                 dato.put("kilometraje_final", kFinal);

@@ -27,7 +27,7 @@ public class SincActividades extends AsyncTask<Void, Void, Boolean> {
 
     @Override
     protected Boolean doInBackground(Void... params) {
-        return sincActividad.sincronizarActividad() && sincActividad.sincronizarActividades();
+        return sincActividad.sincronizarActividad();
     }
 
     @Override

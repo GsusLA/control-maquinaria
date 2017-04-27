@@ -9,7 +9,7 @@ package mx.grupohi.almacenes.controlmaquinaria.Serializables;
 public class Actividades {
     private int id;
     private int id_reporte;
-    private String clave_actividad;
+    private String id_concepto;
     private String tipo_hora;
     private int turno;
     private String hora_inicial;
@@ -19,7 +19,7 @@ public class Actividades {
     private String observaciones;
     private String created_at;
     private String creado_por;
-    private int imei;
+    private String imei;
     private int estatus;
 
     public Actividades(){}
@@ -41,11 +41,11 @@ public class Actividades {
     }
 
     public String getClave_actividad() {
-        return clave_actividad;
+        return id_concepto;
     }
 
     public void setClave_actividad(String clave_actividad) {
-        this.clave_actividad = clave_actividad;
+        this.id_concepto = clave_actividad;
     }
 
     public String getTipo_hora() {
@@ -120,11 +120,11 @@ public class Actividades {
         this.creado_por = creado_por;
     }
 
-    public int getImei() {
+    public String getImei() {
         return imei;
     }
 
-    public void setImei(int imei) {
+    public void setImei(String imei) {
         this.imei = imei;
     }
 

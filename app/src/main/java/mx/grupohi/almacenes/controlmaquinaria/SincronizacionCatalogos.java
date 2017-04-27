@@ -39,7 +39,7 @@ public class SincronizacionCatalogos {
     public void sincCatalogosMaquinaria(){
         try {
             URL url = new URL(context.getString(R.string.url_almacenes));
-            ContentValues datos = getDatosObra();
+            ContentValues datos = Util.getDatosObra(context);
 
             if(datos == null) return;
 
@@ -63,25 +63,6 @@ public class SincronizacionCatalogos {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    /**
-     * Recupera de la BD los datos e la obra que esta sincronizada en el dispositivo móvil
-     * @return
-     */
-    public ContentValues getDatosObra(){
-        ContentValues obra = null;
-        db = db_maq.getWritableDatabase();
-        Cursor c = db.rawQuery("Select obra.idobra, obra.base, obra.token from obra;", null);
-        if(c != null && c.moveToFirst()){
-            obra = new ContentValues();
-            obra.put("idObra", c.getInt(0));
-            obra.put("base", c.getString(1));
-            obra.put("token", c.getString(2));
-        }
-        c.close();
-        db.close();
-        return obra;
     }
 
     /**

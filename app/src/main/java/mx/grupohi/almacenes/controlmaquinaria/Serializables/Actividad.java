@@ -14,13 +14,13 @@ public class Actividad implements Serializable {
     private String fecha;
     private Double horometro_inicial;
     private Double horometro_final;
-    private Double kilometraje_inicial;
-    private Double kilometraje_final;
+    private int kilometraje_inicial;
+    private int kilometraje_final;
     private String operador;
     private String observaciones;
     private String created_at;
     private int creado_por;
-    private int imei;
+    private String imei;
     private int estatus;
 
     public int getId() {
@@ -63,19 +63,19 @@ public class Actividad implements Serializable {
         this.horometro_final = horometro_final;
     }
 
-    public Double getKilometraje_inicial() {
+    public int getKilometraje_inicial() {
         return kilometraje_inicial;
     }
 
-    public void setKilometraje_inicial(Double kilometraje_inicial) {
+    public void setKilometraje_inicial(int kilometraje_inicial) {
         this.kilometraje_inicial = kilometraje_inicial;
     }
 
-    public Double getKilometraje_final() {
+    public int getKilometraje_final() {
         return kilometraje_final;
     }
 
-    public void setKilometraje_final(Double kilometraje_final) {
+    public void setKilometraje_final(int kilometraje_final) {
         this.kilometraje_final = kilometraje_final;
     }
 
@@ -111,11 +111,11 @@ public class Actividad implements Serializable {
         this.creado_por = creado_por;
     }
 
-    public int getImei() {
+    public String getImei() {
         return imei;
     }
 
-    public void setImei(int imei) {
+    public void setImei(String imei) {
         this.imei = imei;
     }
 

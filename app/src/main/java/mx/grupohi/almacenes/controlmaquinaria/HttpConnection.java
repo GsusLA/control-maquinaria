@@ -97,14 +97,13 @@ class HttpConnection {
             urlConnection.setRequestProperty("Authorization", "Bearer " + params.get("token"));
             urlConnection.setRequestProperty("database_name", params.get("base").toString());
             urlConnection.setRequestProperty("id_obra", params.get("idObra").toString());
-
             urlConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
 
             String codigoRespuesta = Integer.toString(urlConnection.getResponseCode());
             if(codigoRespuesta.equals("200")){//Vemos si es 200 OK y leemos el cuerpo del mensaje.
                 body = readStream(urlConnection.getInputStream());
             }else{
-                body = "{\"error\":\""+codigoRespuesta+"\"}";
+                body = "{\"status_code\":\""+codigoRespuesta+"\"}";
             }
             urlConnection.disconnect();
         } catch (MalformedURLException e) {
@@ -116,6 +115,41 @@ class HttpConnection {
         }
         return new JSONObject(body);
     }
+
+
+    static JSONObject SINCPOST(URL url, ContentValues params) throws IOException, JSONException {
+        String body = " ";
+
+        try {
+
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setRequestMethod("POST");
+            urlConnection.setRequestProperty("Authorization", "Bearer " + params.get("token"));
+            urlConnection.setRequestProperty("database_name", params.get("base").toString());
+            urlConnection.setRequestProperty("id_obra", params.get("idObra").toString());
+            urlConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+
+            OutputStream os = urlConnection.getOutputStream();
+            os.write(params.get("json").toString().getBytes("UTF-8"));
+            os.close();
+
+            String codigoRespuesta = Integer.toString(urlConnection.getResponseCode());
+            if(codigoRespuesta.equals("200")){//Vemos si es 200 OK y leemos el cuerpo del mensaje.
+                body = readStream(urlConnection.getInputStream());
+            }else{
+                body = "{\"status_code\":\""+codigoRespuesta+"\"}";
+            }
+            urlConnection.disconnect();
+        } catch (MalformedURLException e) {
+            body = e.toString(); //Error URL incorrecta
+        } catch (SocketTimeoutException e){
+            body = e.toString(); //Error: Finalizado el timeout esperando la respuesta del servidor.
+        } catch (Exception e) {
+            body = e.toString();//Error diferente a los anteriores.
+        }
+        return new JSONObject(body);
+    }
+
 
     /**
      * Metodo GET para el cierre se sesión
@@ -132,7 +166,6 @@ class HttpConnection {
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
             urlConnection.setRequestProperty("Authorization", "Bearer " + token);
-
             urlConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
 
             String codigoRespuesta = Integer.toString(urlConnection.getResponseCode());

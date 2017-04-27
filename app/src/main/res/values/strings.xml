@@ -22,7 +22,8 @@
     <string name="url_login">http://172.20.73.141/api/authenticate</string>
     <string name="url_logout">http://172.20.73.141/api/logout</string>
     <string name="url_almacenes">http://172.20.73.141/api/almacenes</string>
-    <string name="url_sinc_actividad">http://172.20.73.141/api/</string>
+    <string name="url_sinc_actividad">http://172.20.73.141/api/reporte-actividades</string>
+    <string name="url_sinc_actividades">http://172.20.73.141/api/reporte-actividades/%1$d/actividades</string>
 
     <string name="error_field_required">Éste campo es requerido</string>
     <string name="error_internet">Por favor habilite su conexión a Internet para poder iniciar sesión</string>

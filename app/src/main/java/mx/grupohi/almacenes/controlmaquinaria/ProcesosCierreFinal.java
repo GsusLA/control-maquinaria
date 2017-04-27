@@ -82,7 +82,7 @@ public class ProcesosCierreFinal {
                 actv.setId(c.getInt(0));
                 actv.setId_almacen(c.getInt(1));
                 actv.setHorometro_inicial(c.getDouble(3));
-                actv.setKilometraje_inicial(c.getDouble(5));
+                actv.setKilometraje_inicial(c.getInt(5));
                 actv.setOperador(c.getString(7));
                 actv.setObservaciones(c.getString(8));
                 return actv;

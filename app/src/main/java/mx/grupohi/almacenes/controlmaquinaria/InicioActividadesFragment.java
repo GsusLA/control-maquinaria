@@ -86,11 +86,11 @@ public class InicioActividadesFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 int hora = spTipoHora.getSelectedItemPosition();
-                String th = spTipoHora.getSelectedItem().toString();
+                String th = tipoHora(spTipoHora.getSelectedItem().toString());
                 int ct = turno;
                 String clave = cveActividad.getText().toString();
                 String obser = observ.getText().toString();
-                String cargo = cargo_empresa.isChecked()? "Si": "No";
+                int cargo = cargo_empresa.isChecked()? 1: 0;
                 String hour = hInicial.getText().toString();
                 if(hora != 0 && ct != 0 && !TextUtils.isEmpty(clave)){
                     System.out.println(th);
@@ -100,7 +100,7 @@ public class InicioActividadesFragment extends Fragment {
                     datos.put("tipo_hora", th);
                     datos.put("turno", ct);
                     datos.put("hora_inicial", hour);
-                    datos.put("con_cargo_empresa", cargo);
+                    if(cargo == 1 && hora != 2)datos.put("con_cargo_empresa", cargo);
                     datos.put("observaciones", obser);
                     datos.put("created_at", Util.getDateTime());
                     datos.put("creado_por", Util.getIdUsuario(getActivity()));
@@ -157,6 +157,18 @@ public class InicioActividadesFragment extends Fragment {
                 }
             }
         });
+    }
+
+    private String tipoHora(String hora){
+        switch (hora){
+            case"Efectivas": return "EF";
+            case"Reparación Mayor": return "RM";
+            case"Reparación Menor": return "Rme";
+            case"Mantenimiento": return "MT";
+            case"Ocio": return "OC";
+            case"Traslado": return "TR";
+        }
+        return null;
     }
     private void Message(final String message) {
 

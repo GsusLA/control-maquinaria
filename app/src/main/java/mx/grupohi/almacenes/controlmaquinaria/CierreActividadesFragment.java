@@ -96,7 +96,7 @@ public class CierreActividadesFragment extends Fragment {
             horaTermino.setText(Util.getfecha() + " / " + Util.getHora());
             obserFinales = "Iniciales: " + json.getString("observaciones") + " - ";
             fecha = json.getString("fecha");
-            if(json.getString("con_cargo_empresa").equals("Si")) cargo_empresa.setChecked(true);
+            if(json.toString().contains("con_cargo_empresa")) if(json.getString("con_cargo_empresa").equals("1"))cargo_empresa.setChecked(true);
 
 
             hraInicio = json.getString("hora_inicial");
@@ -112,7 +112,7 @@ public class CierreActividadesFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 ContentValues dato = new ContentValues();
-                dato.put("hora_final", horaTermino.getText().toString());
+                dato.put("hora_final", hraTermino);
                 dato.put("cantidad", Double.parseDouble(cantidadH.getText().toString()));
                 dato.put("observaciones", obserFinales + "Finales: " + observaciones.getText().toString());
 
@@ -187,17 +187,17 @@ public class CierreActividadesFragment extends Fragment {
     private int getHorasXDia(){
         int diasMes;
         int horas = 0;
-        String[] diaInicio = fecha.split("/");
-        String[] diaFin = Util.getfecha().split("/");
+        String[] diaInicio = fecha.split("\\-");
+        String[] diaFin = Util.getfecha().split("\\-");
 
         if(TextUtils.equals(diaInicio[1], diaFin[1])){
-            horas = (Integer.parseInt(diaFin[0]) - Integer.parseInt(diaInicio[0])) * 24;
+            horas = (Integer.parseInt(diaFin[2]) - Integer.parseInt(diaInicio[2])) * 24;
         }else{
             if(Arrays.asList("Jan",  "Mar",  "May",  "Jul", "Aug", "Oct", "Dec").contains(diaInicio[1]))diasMes = 31;
             else if(Arrays.asList("Apr",  "Jun",  "Sep", "Nov").contains(diaInicio[1]))diasMes = 30;
             else diasMes = 28;
 
-            horas = ((diasMes - Integer.parseInt(diaInicio[0])) + Integer.parseInt(diaFin[0])) * 24;
+            horas = ((diasMes - Integer.parseInt(diaInicio[2])) + Integer.parseInt(diaFin[2])) * 24;
         }
         return horas;
     }

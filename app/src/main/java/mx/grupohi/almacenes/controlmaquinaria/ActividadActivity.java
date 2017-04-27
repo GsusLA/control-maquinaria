@@ -84,12 +84,13 @@ public class ActividadActivity extends AppCompatActivity
                     Message("Seleccione Antes una Maquinaria");
                 }else{
                     String horom = horometro.getText().toString();
-                    String kilom = kilometraje.getText().toString();
+                    String[] kmt = kilometraje.getText().toString().split("\\.");
+                    int kilom = Integer.parseInt(kmt[0]);
                     String oper = operador.getText().toString();
                     String observ = observaciones.getText().toString();
 
 
-                    if(TextUtils.isEmpty(horom) || TextUtils.isEmpty(kilom) || TextUtils.isEmpty(oper)){
+                    if(TextUtils.isEmpty(horom) || TextUtils.isEmpty(kilometraje.getText().toString()) || TextUtils.isEmpty(oper)){
                         Message("¡Existen campos Vacios!");
                     }else{
                         ContentValues actividad = new ContentValues();

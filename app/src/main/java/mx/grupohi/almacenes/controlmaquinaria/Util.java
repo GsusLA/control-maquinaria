@@ -76,10 +76,10 @@ public class Util {
     static String getIdUsuario(Context context){
         DBMaqSqlite db_sca = new DBMaqSqlite(context, "maq", null, 1);
         SQLiteDatabase db = db_sca.getWritableDatabase();
-        Cursor c = db.rawQuery("SELECT idusuario FROM usuario;", null);
+        Cursor c = db.rawQuery("SELECT nombre_usuario FROM usuario;", null);
         try{
             if(c != null && c.moveToFirst()){
-                return c.getString(c.getColumnIndex("idusuario"));
+                return c.getString(c.getColumnIndex("nombre_usuario"));
             }
         }finally {
             assert c != null;
@@ -115,6 +115,26 @@ public class Util {
     }
 
     /**
+     * Recupera de la BD los datos e la obra que esta sincronizada en el dispositivo móvil
+     * @return
+     */
+    static ContentValues getDatosObra(Context context){
+        ContentValues obra = null;
+        DBMaqSqlite db_sca = new DBMaqSqlite(context, "maq", null, 1);
+        SQLiteDatabase db = db_sca.getWritableDatabase();
+        Cursor c = db.rawQuery("Select obra.idobra, obra.base, obra.token from obra;", null);
+        if(c != null && c.moveToFirst()){
+            obra = new ContentValues();
+            obra.put("idObra", c.getInt(0));
+            obra.put("base", c.getString(1));
+            obra.put("token", c.getString(2));
+        }
+        c.close();
+        db.close();
+        return obra;
+    }
+
+    /**
      *  Actualiza el token de conexion a la API con la cual se crea la sesón en el servicio web, se actualiza
      *  cada vez que se requiere que el usuario reinicie su sesión en la aplicación
      * @param context el contexto de la actividad que requiere la información
@@ -144,7 +164,7 @@ public class Util {
      * @return String con la fecha en formato dd/MMM/aa en español
      */
     static String getfecha(){
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM/yy", new Locale("es","ES"));
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", new Locale("es","ES"));
         String currentDateandTime = sdf.format(new Date());
         return currentDateandTime;
     }
@@ -154,7 +174,7 @@ public class Util {
      * @return String con la hora actual en formato HH:mm AM/PM
      */
     public static String getHora(){
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm aa");
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         String currentDateandTime = sdf.format(new Date());
         return currentDateandTime;
     }
@@ -164,7 +184,7 @@ public class Util {
      * @return String con los datos de fecha y hora actuales en formato dd/MM/aaaa HH:mm AM/PM en español
      */
     static String getDateTime(){
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm aa" , new Locale("es","ES"));
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.000" , new Locale("es","ES"));
         String currentDateandTime = sdf.format(new Date());
         return currentDateandTime;
     }
