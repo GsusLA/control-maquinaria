@@ -25,6 +25,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import mx.grupohi.almacenes.controlmaquinaria.Serializables.Usuario;
+import mx.grupohi.almacenes.controlmaquinaria.TareasAsync.SincActividades;
 
 public class ActividadesActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
@@ -205,7 +206,7 @@ public class ActividadesActivity extends AppCompatActivity
             startActivity(new Intent(ActividadesActivity.this, CierreActivity.class));
             this.finish();
         } else if (id == R.id.nav_sincActividades) {
-
+            new SincActividades(ActividadesActivity.this).execute();
         } else if (id == R.id.nav_sincCatalogos) {
             new SincCatalogos().execute();
         }

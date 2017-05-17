@@ -2,6 +2,7 @@ package mx.grupohi.almacenes.controlmaquinaria.TareasAsync;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import mx.grupohi.almacenes.controlmaquinaria.SincronizacionActividad;
 
@@ -34,6 +35,7 @@ public class SincActividades extends AsyncTask<Void, Void, Boolean> {
     protected void onPostExecute(Boolean aBoolean) {
         if(aBoolean){
             System.out.println("Actividades sincronizadas");
+            Toast.makeText(context, "Actividades Sincronizadas correctamente.", Toast.LENGTH_LONG).show();
         }
     }
 }

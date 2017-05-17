@@ -1,6 +1,7 @@
 package mx.grupohi.almacenes.controlmaquinaria;
 
 import android.app.ProgressDialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -19,6 +20,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -117,7 +122,7 @@ public class ObraActivity extends AppCompatActivity {
      *  se hace la primera vez que se inicie sesión y que no haya una obra previamente sincronizada
      */
     private class SincronizarObra extends AsyncTask<Void, Void, Boolean> {
-        private Boolean  almacen, obraDb, almacenDb, sincLinea;
+        private Boolean  almacen, obraDb, almacenDb, sincLinea, sesionV;
 
         @Override
         protected void onPreExecute() {
@@ -128,20 +133,43 @@ public class ObraActivity extends AppCompatActivity {
 
         @Override
         protected Boolean doInBackground(Void... params) {
+
             obraDb = sincronizacionObra.guardarObra(seleccionada);
             almacen = sincronizacionObra.sincAlmacenes(seleccionada);
             sincLinea = sincronizacionObra.sincObraLinea(seleccionada, usuario);
 
-            return null;
+            try {
+                // Inicia nueva sesion
+                URL urlSesion = new URL(getApplicationContext().getString(R.string.url_sesion_modificar));
+                ContentValues sesion = new ContentValues();
+                sesion.put("usuario", usuario.getNombre_usuario());
+                sesion.put("imei", Util.deviceImei(ObraActivity.this));
+                sesion.put("fecha", Util.getfecha());
+                sesion.put("estatus_sesion", 0);
+                sesion.put("created_at", Util.getDateTime());
+
+                HttpConnection.POST(urlSesion, sesion);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+                return false;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return false;
+            }
+            return true;
         }
 
         @Override
         protected void onPostExecute(Boolean aBoolean) {
             mProgressDialog.dismiss();
-            if(almacen && obraDb && sincLinea){
-                nextActivity();
+            if(aBoolean) {
+                if (almacen && obraDb && sincLinea) {
+                    nextActivity();
+                } else {
+                    Message(getString(R.string.general_exception));
+                }
             }else{
-                Message(getString(R.string.general_exception));
+                Message("Error al iniciar sesión de usuario");
             }
         }
     }

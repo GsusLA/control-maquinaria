@@ -29,6 +29,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.stetho.Stetho;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -75,6 +77,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Stetho.initializeWithDefaults(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -331,6 +334,7 @@ public class MainActivity extends AppCompatActivity
             if (aBoolean) {
                 cancelarTimer();
                 finish();
+                alarmaSesion.CancelSincAlarm(MainActivity.this);
             }
             else{
                 Message("No se pudo cerrar sesión, intende de nuevo.");
@@ -340,6 +344,9 @@ public class MainActivity extends AppCompatActivity
         @Override
         protected Boolean doInBackground(Void... params) {
             try {
+                URL sesionUpdate = new URL(getApplication().getString(R.string.url_sesion_modificar) +"/"+ usuario.getNombre_usuario());
+                JSONObject resul = HttpConnection.UPDATE(sesionUpdate);
+
                 URL url = new URL(getApplicationContext().getString(R.string.url_logout));
                 JSONObject resp = HttpConnection.LOGOUT(url, token);
 

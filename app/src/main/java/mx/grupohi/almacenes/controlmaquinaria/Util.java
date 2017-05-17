@@ -184,7 +184,7 @@ public class Util {
      * @return String con los datos de fecha y hora actuales en formato dd/MM/aaaa HH:mm AM/PM en español
      */
     static String getDateTime(){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.000" , new Locale("es","ES"));
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss" , new Locale("es","ES"));
         String currentDateandTime = sdf.format(new Date());
         return currentDateandTime;
     }

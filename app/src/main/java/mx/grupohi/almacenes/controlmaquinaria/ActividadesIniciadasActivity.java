@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import mx.grupohi.almacenes.controlmaquinaria.Serializables.Actividades;
 import mx.grupohi.almacenes.controlmaquinaria.Serializables.Almacenes;
 import mx.grupohi.almacenes.controlmaquinaria.Serializables.Usuario;
+import mx.grupohi.almacenes.controlmaquinaria.TareasAsync.SincActividades;
 
 public class ActividadesIniciadasActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
@@ -201,7 +202,7 @@ public class ActividadesIniciadasActivity extends AppCompatActivity
             startActivity(new Intent(ActividadesIniciadasActivity.this, CierreActivity.class));
             this.finish();
         } else if (id == R.id.nav_sincActividades) {
-
+            new SincActividades(ActividadesIniciadasActivity.this).execute();
         } else if (id == R.id.nav_sincCatalogos) {
             new SincCatalogos().execute();
         }

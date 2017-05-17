@@ -102,7 +102,7 @@ public class InicioActividadesFragment extends Fragment {
                     datos.put("hora_inicial", hour);
                     if(cargo == 1 && hora != 2)datos.put("con_cargo_empresa", cargo);
                     datos.put("observaciones", obser);
-                    datos.put("created_at", Util.getDateTime());
+                    datos.put("created_at", Util.getDateTime()+".000");  // Cambio en datetime
                     datos.put("creado_por", Util.getIdUsuario(getActivity()));
                     datos.put("imei", Util.deviceImei(getActivity()));
                     datos.put("estatus", 0);

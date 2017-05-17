@@ -30,6 +30,7 @@ import java.util.ArrayList;
 
 import mx.grupohi.almacenes.controlmaquinaria.Serializables.Almacenes;
 import mx.grupohi.almacenes.controlmaquinaria.Serializables.Usuario;
+import mx.grupohi.almacenes.controlmaquinaria.TareasAsync.SincActividades;
 
 public class ActividadActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
@@ -100,7 +101,7 @@ public class ActividadActivity extends AppCompatActivity
                         actividad.put("kilometraje_inicial", kilom);
                         actividad.put("operador", oper);
                         actividad.put("observaciones", observ);
-                        actividad.put("created_at", Util.getDateTime());
+                        actividad.put("created_at", Util.getDateTime()+".000");  // Cambio en datetime
                         actividad.put("creado_por", Util.getIdUsuario(getApplicationContext()));
                         actividad.put("imei", Util.deviceImei(getApplicationContext()));
                         actividad.put("estatus", 0);
@@ -295,7 +296,7 @@ public class ActividadActivity extends AppCompatActivity
             startActivity(new Intent(ActividadActivity.this, CierreActivity.class));
             this.finish();
         } else if (id == R.id.nav_sincActividades) {
-
+            new SincActividades(ActividadActivity.this).execute();
         } else if (id == R.id.nav_sincCatalogos) {
             new SincCatalogos().execute();
         }

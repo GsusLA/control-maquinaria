@@ -8,10 +8,12 @@ import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -43,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
     private ArrayList<Obra> obrasActuales;
     private Usuario usuario;
     Camera2BasicFragment fotos;
+    String user;
 
     private Login login;
 
@@ -115,7 +118,7 @@ public class LoginActivity extends AppCompatActivity {
         formLayout.setError(null);
 
         // Store values at the time of the login attempt.
-        final String usuario = mUsuarioView.getText().toString();
+        user = mUsuarioView.getText().toString();
         final String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
@@ -127,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
             cancel = true;
         }
 
-        if(TextUtils.isEmpty(usuario)) {
+        if(TextUtils.isEmpty(user)) {
             mUsuarioView.setError(getString(R.string.error_field_required));
             focusView = mUsuarioView;
             cancel = true;
@@ -140,7 +143,7 @@ public class LoginActivity extends AppCompatActivity {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    mAuthTask = new UserLoginTask(usuario, password);
+                    mAuthTask = new UserLoginTask(user, password);
                     mAuthTask.execute((Void) null);
                 }
             }).run();
@@ -153,9 +156,8 @@ public class LoginActivity extends AppCompatActivity {
      */
     private void nextActivity(){
         if(login.validarObra()){
-            new SincronizacionObra(getApplicationContext()).guardarToken(token);
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-
+                new SincronizacionObra(getApplicationContext()).guardarToken(token);
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
         }else{
             Intent intent = new Intent(LoginActivity.this, ObraActivity.class);
             intent.putExtra("Obras", obrasActuales);
@@ -198,10 +200,50 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         mProgressDialog.setTitle("Actualizando");
-                        mProgressDialog.setMessage("Actualizando datos de usuario...");
+                        mProgressDialog.setMessage("Verificando sesión del usuario...");
                     }
                 });
 
+                JSONArray resul = JSON.getJSONArray("sesion");
+
+                if(resul.toString().contains("usuario")) {
+                    JSONObject resp = resul.getJSONObject(0);
+                    int idSesion = resp.getInt("id");
+                    boolean imeiSesion = resp.get("imei").equals(Util.deviceImei(LoginActivity.this));
+                    boolean fechaSesion = resp.get("fecha").equals(Util.getfecha());
+                    boolean estatusSesion = resp.get("estatus_sesion").equals("0");
+
+                    if (!imeiSesion) {
+                        errorMessage("El usuario tiene una sesión iniciada en otro dispositivo");
+                        return false;
+                    }
+                    if(!fechaSesion){
+                        // La fecha actual no coincide con la sesion anterior, se cierra la sesion anterior y se inicia una nueva
+                        URL sesionUpdate = new URL(getApplication().getString(R.string.url_sesion_modificar) +"/"+ user);
+                        JSONObject respS = HttpConnection.UPDATE(sesionUpdate);
+                        Log.i("resp: ", respS.toString());
+                    }
+                }
+                if(login.validarObra()){
+                    // Inicia nueva sesion
+                    URL urlSesion = new URL(getApplicationContext().getString(R.string.url_sesion_modificar));
+                    ContentValues sesion = new ContentValues();
+                    sesion.put("usuario", user);
+                    sesion.put("imei", Util.deviceImei(LoginActivity.this));
+                    sesion.put("fecha", Util.getfecha());
+                    sesion.put("estatus_sesion", 0);
+                    sesion.put("created_at", Util.getDateTime());
+
+                    HttpConnection.POST(urlSesion, sesion);
+                }
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mProgressDialog.setTitle("Actualizando");
+                        mProgressDialog.setMessage("Actualizando datos de usuario...");
+                    }
+                });
 
                 JSONObject user = JSON.getJSONObject("user");
                 token = JSON.getString("token");

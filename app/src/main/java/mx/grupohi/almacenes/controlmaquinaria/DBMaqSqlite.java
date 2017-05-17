@@ -19,7 +19,7 @@ public class DBMaqSqlite extends SQLiteOpenHelper {
             "CREATE TABLE almacenes (id INTEGER PRIMARY KEY AUTOINCREMENT, economico INTEGER, descripcion VARCHAR);",
             "CREATE TABLE reportes_actividad (id INTEGER  PRIMARY KEY AUTOINCREMENT, id_almacen INTEGER, fecha DATE, horometro_inicial DOUBLE, horometro_final DOUBLE, kilometraje_inicial INT, kilometraje_final INT, operador VARCHAR, observaciones TEXT, created_at VARCHAR, creado_por VARCHAR, imei VARCHAR, estatus INTEGER);",
             "CREATE TABLE actividades ( id INTEGER PRIMARY KEY AUTOINCREMENT, id_reporte INTEGER, clave_actividad VARCHAR, tipo_hora VARCHAR, turno INTEGER, hora_inicial STRING, hora_final STRING, cantidad DOUBLE, con_cargo_empresa VARCHAR, observaciones TEXT, created_at VARCHAR, creado_por VARCHAR, imei VARCHAR, estatus INTEGER);",
-            "CREATE TABLE conceptos ( id INTEGER PRIMARY KEY AUTOINCREMENT, descripcion VARCHAR, clave_concepto VARCHAR);"
+            "CREATE TABLE sesiones_movil ( id INTEGER PRIMARY KEY AUTOINCREMENT, usuario VARCHAR, imei VARCHAR, fecha DATE, estatus INT, created_at VARCHAR);"
     };
 
     @Override

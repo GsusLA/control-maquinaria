@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import mx.grupohi.almacenes.controlmaquinaria.Serializables.Actividad;
 import mx.grupohi.almacenes.controlmaquinaria.Serializables.Almacenes;
 import mx.grupohi.almacenes.controlmaquinaria.Serializables.Usuario;
+import mx.grupohi.almacenes.controlmaquinaria.TareasAsync.SincActividades;
 
 public class CierreActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
@@ -227,7 +228,7 @@ public class CierreActivity extends AppCompatActivity
         actividades = procesosCierreFinal.getMaquinariaIniciada();
         int size = actividades!=null?actividades.size():0;
         String[] maquinas = new String[size+1];
-        maquinas[0] = "Selecciones una Maquinaria";
+        maquinas[0] = "Seleccione una Maquinaria";
         for(int i = 0; i< size; i++){
             Almacenes valorMaq = actividades.get(i);
             maquinas[i+1] = valorMaq.getEconomico() + " " + valorMaq.getDescripcion();
@@ -315,7 +316,7 @@ public class CierreActivity extends AppCompatActivity
         } else if (id == R.id.nav_cierre) {
 
         } else if (id == R.id.nav_sincActividades) {
-
+            new SincActividades(CierreActivity.this).execute();
         } else if (id == R.id.nav_sincCatalogos) {
             new SincCatalogos().execute();
         }
