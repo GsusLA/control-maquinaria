@@ -19,6 +19,7 @@
         android:icon="@mipmap/maquinaria"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity android:name="mx.grupohi.almacenes.controlmaquinaria.LoginActivity" >
             <intent-filter>
@@ -69,6 +70,11 @@
             android:name="mx.grupohi.almacenes.controlmaquinaria.ActividadesService"
             android:enabled="true" >
         </service>
+
+        <provider
+            android:name="com.android.tools.ir.server.InstantRunContentProvider"
+            android:authorities="mx.grupohi.almacenes.controlmaquinaria.com.android.tools.ir.server.InstantRunContentProvider"
+            android:multiprocess="true" />
     </application>
 
 </manifest>

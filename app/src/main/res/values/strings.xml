@@ -19,13 +19,13 @@
 
     <string name="action_settings">Cerrar Sesión</string>
 
-    <string name="url_login">http://172.20.73.141/api/authenticate</string>
-    <string name="url_logout">http://172.20.73.141/api/logout</string>
-    <string name="url_almacenes">http://172.20.73.141/api/almacenes</string>
-    <string name="url_sinc_actividad">http://172.20.73.141/api/reporte-actividades</string>
-    <string name="url_sinc_actividades">http://172.20.73.141/api/reporte-actividades/%1$d/actividades</string>
-    <string name="url_sesion">http://172.20.73.141/api/sesion-movil/</string>
-    <string name="url_sesion_modificar">http://172.20.73.141/api/sesion-movil</string>
+    <string name="url_login">http://http://control-maquinaria.grupohi.mx/api/authenticate</string>
+    <string name="url_logout">http://http://control-maquinaria.grupohi.mx/api/logout</string>
+    <string name="url_almacenes">http://http://control-maquinaria.grupohi.mx/api/almacenes</string>
+    <string name="url_sinc_actividad">http://http://control-maquinaria.grupohi.mx/api/reporte-actividades</string>
+    <string name="url_sinc_actividades">http://http://control-maquinaria.grupohi.mx/api/reporte-actividades/%1$d/actividades</string>
+    <string name="url_sesion">http://http://control-maquinaria.grupohi.mx/api/sesion-movil/</string>
+    <string name="url_sesion_modificar">http://http://control-maquinaria.grupohi.mx/api/sesion-movil</string>
 
     <string name="error_field_required">Éste campo es requerido</string>
     <string name="error_internet">Por favor habilite su conexión a Internet para poder iniciar sesión</string>
