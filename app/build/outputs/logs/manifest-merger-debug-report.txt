@@ -1,0 +1,232 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:2:1-66:12
+INJECTED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:2:1-66:12
+INJECTED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:2:1-66:12
+INJECTED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:2:1-66:12
+MERGED from [com.facebook.stetho:stetho:1.5.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\9ffd80b4194a2b35a5c24eec317586f8\AndroidManifest.xml:2:1-13:12
+MERGED from [com.android.support:design:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\708cf4a1e64c327f472e611f07c111c7\AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:recyclerview-v7:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\228c6e00e24ea082f8f0d6899d49c315\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\65e74123085258a868f80044e4b3205d\AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:support-v13:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\982b117cca5073562902613d79ee8246\AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:transition:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\f1a42466bf1482d27594d8ee48f497ec\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:support-v4:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\4fe42485a2517416730353750a5c8cd1\AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:cardview-v7:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\0a4e2e1d0c31221b43f6b6e43079d87c\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:support-fragment:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\d914cd6333831d7e2aee1c144abad0ca\AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:support-core-ui:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\d07ce6b74a8bab05b14d85375a4e069a\AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:animated-vector-drawable:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\4a8b9b3ebce9704a5aa1acbc856cd391\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:support-vector-drawable:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\378a3bbb914cd56c8866038db993416b\AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:support-media-compat:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\fd54b3bea764a92d912869fc10bcca54\AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:support-core-utils:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\797062b025ac2d3709f5b57a3930134e\AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:support-compat:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\ca9799847770324ee29cc4acc63fd0b7\AndroidManifest.xml:17:1-27:12
+INJECTED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:2:1-66:12
+INJECTED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:2:1-66:12
+INJECTED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:2:1-66:12
+	package
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:3:5-53
+		INJECTED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:2:1-66:12
+		INJECTED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:2:1-66:12
+		INJECTED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:5:5-67
+	android:name
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:5:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:6:5-79
+	android:name
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:6:22-76
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:7:5-74
+	android:name
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:7:22-72
+uses-permission#android.permission.CAMERA
+ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:8:5-64
+	android:name
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:8:22-62
+application
+ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:10:5-64:19
+MERGED from [com.facebook.stetho:stetho:1.5.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\9ffd80b4194a2b35a5c24eec317586f8\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.stetho:stetho:1.5.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\9ffd80b4194a2b35a5c24eec317586f8\AndroidManifest.xml:11:5-20
+MERGED from [com.android.support:design:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\708cf4a1e64c327f472e611f07c111c7\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:design:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\708cf4a1e64c327f472e611f07c111c7\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:appcompat-v7:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\65e74123085258a868f80044e4b3205d\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:appcompat-v7:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\65e74123085258a868f80044e4b3205d\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v13:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\982b117cca5073562902613d79ee8246\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v13:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\982b117cca5073562902613d79ee8246\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:transition:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\f1a42466bf1482d27594d8ee48f497ec\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:transition:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\f1a42466bf1482d27594d8ee48f497ec\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\4fe42485a2517416730353750a5c8cd1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\4fe42485a2517416730353750a5c8cd1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:cardview-v7:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\0a4e2e1d0c31221b43f6b6e43079d87c\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:cardview-v7:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\0a4e2e1d0c31221b43f6b6e43079d87c\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-fragment:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\d914cd6333831d7e2aee1c144abad0ca\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\d914cd6333831d7e2aee1c144abad0ca\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\d07ce6b74a8bab05b14d85375a4e069a\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\d07ce6b74a8bab05b14d85375a4e069a\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\4a8b9b3ebce9704a5aa1acbc856cd391\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\4a8b9b3ebce9704a5aa1acbc856cd391\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\378a3bbb914cd56c8866038db993416b\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-vector-drawable:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\378a3bbb914cd56c8866038db993416b\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-media-compat:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\fd54b3bea764a92d912869fc10bcca54\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\fd54b3bea764a92d912869fc10bcca54\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\797062b025ac2d3709f5b57a3930134e\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\797062b025ac2d3709f5b57a3930134e\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\ca9799847770324ee29cc4acc63fd0b7\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\ca9799847770324ee29cc4acc63fd0b7\AndroidManifest.xml:25:5-20
+	android:supportsRtl
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:14:9-35
+	android:label
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:13:9-41
+	android:icon
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:12:9-42
+	android:allowBackup
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:11:9-35
+	android:theme
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:15:9-40
+activity#mx.grupohi.almacenes.controlmaquinaria.LoginActivity
+ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:16:9-22:20
+	android:name
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:16:19-48
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:17:13-21:29
+action#android.intent.action.MAIN
+ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:18:17-69
+	android:name
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:18:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:20:17-77
+	android:name
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:20:27-74
+activity#mx.grupohi.almacenes.controlmaquinaria.ObraActivity
+ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:23:9-24:59
+	android:label
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:24:13-57
+	android:name
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:23:19-47
+activity#mx.grupohi.almacenes.controlmaquinaria.MainActivity
+ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:25:9-28:59
+	android:label
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:27:13-56
+	android:theme
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:28:13-56
+	android:name
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:26:13-41
+activity#mx.grupohi.almacenes.controlmaquinaria.ActividadActivity
+ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:30:9-32:58
+	android:label
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:31:13-62
+	android:theme
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:32:13-56
+	android:name
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:30:19-52
+activity#mx.grupohi.almacenes.controlmaquinaria.ActividadesActivity
+ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:34:9-36:58
+	android:label
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:35:13-64
+	android:theme
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:36:13-56
+	android:name
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:34:19-54
+activity#mx.grupohi.almacenes.controlmaquinaria.ActividadesIniciadasActivity
+ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:38:9-40:58
+	android:label
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:39:13-62
+	android:theme
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:40:13-56
+	android:name
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:38:19-63
+activity#mx.grupohi.almacenes.controlmaquinaria.CierreActivity
+ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:42:9-44:58
+	android:label
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:43:13-59
+	android:theme
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:44:13-56
+	android:name
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:42:19-49
+activity#mx.grupohi.almacenes.controlmaquinaria.AlertDialogActivity
+ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:46:9-48:58
+	android:label
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:47:13-35
+	android:theme
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:48:13-56
+	android:name
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:46:19-54
+activity#mx.grupohi.almacenes.controlmaquinaria.Alarma.NotificacionActividad
+ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:50:9-56:20
+	android:parentActivityName
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:52:13-55
+	android:label
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:51:13-52
+	android:name
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:50:19-63
+meta-data#android.support.PARENT_ACTIVITY
+ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:53:13-55:48
+	android:value
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:55:17-46
+	android:name
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:54:17-63
+receiver#mx.grupohi.almacenes.controlmaquinaria.Alarma.AlarmReciever
+ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:58:9-69
+	android:name
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:58:21-57
+service#mx.grupohi.almacenes.controlmaquinaria.ActividadesService
+ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:60:9-63:19
+	android:enabled
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:62:13-35
+	android:name
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml:61:13-47
+uses-sdk
+INJECTED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml
+INJECTED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml
+MERGED from [com.facebook.stetho:stetho:1.5.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\9ffd80b4194a2b35a5c24eec317586f8\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.stetho:stetho:1.5.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\9ffd80b4194a2b35a5c24eec317586f8\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:design:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\708cf4a1e64c327f472e611f07c111c7\AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:design:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\708cf4a1e64c327f472e611f07c111c7\AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:recyclerview-v7:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\228c6e00e24ea082f8f0d6899d49c315\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\228c6e00e24ea082f8f0d6899d49c315\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\65e74123085258a868f80044e4b3205d\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:appcompat-v7:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\65e74123085258a868f80044e4b3205d\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-v13:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\982b117cca5073562902613d79ee8246\AndroidManifest.xml:21:5-23:55
+MERGED from [com.android.support:support-v13:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\982b117cca5073562902613d79ee8246\AndroidManifest.xml:21:5-23:55
+MERGED from [com.android.support:transition:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\f1a42466bf1482d27594d8ee48f497ec\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\f1a42466bf1482d27594d8ee48f497ec\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\4fe42485a2517416730353750a5c8cd1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\4fe42485a2517416730353750a5c8cd1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:cardview-v7:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\0a4e2e1d0c31221b43f6b6e43079d87c\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:cardview-v7:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\0a4e2e1d0c31221b43f6b6e43079d87c\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-fragment:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\d914cd6333831d7e2aee1c144abad0ca\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\d914cd6333831d7e2aee1c144abad0ca\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-ui:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\d07ce6b74a8bab05b14d85375a4e069a\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\d07ce6b74a8bab05b14d85375a4e069a\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:animated-vector-drawable:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\4a8b9b3ebce9704a5aa1acbc856cd391\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\4a8b9b3ebce9704a5aa1acbc856cd391\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\378a3bbb914cd56c8866038db993416b\AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-vector-drawable:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\378a3bbb914cd56c8866038db993416b\AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-media-compat:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\fd54b3bea764a92d912869fc10bcca54\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\fd54b3bea764a92d912869fc10bcca54\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-utils:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\797062b025ac2d3709f5b57a3930134e\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\797062b025ac2d3709f5b57a3930134e\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\ca9799847770324ee29cc4acc63fd0b7\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\ca9799847770324ee29cc4acc63fd0b7\AndroidManifest.xml:21:5-23:58
+INJECTED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml
+INJECTED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml
+	tools:overrideLibrary
+		ADDED from [com.android.support:design:25.2.0] C:\Users\Jesús López Arriaga\.gradle\caches\transforms-2\files-2.1\708cf4a1e64c327f472e611f07c111c7\AndroidManifest.xml:23:9-59
+	android:targetSdkVersion
+		INJECTED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml
+		ADDED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Android Proyects\ControlMaquinaria\app\src\main\AndroidManifest.xml

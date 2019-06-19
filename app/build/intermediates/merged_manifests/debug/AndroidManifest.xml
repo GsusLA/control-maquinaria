@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="mx.grupohi.almacenes.controlmaquinaria"
+    android:versionCode="1"
+    android:versionName="RC1.0.0" >
+
+    <uses-sdk
+        android:minSdkVersion="21"
+        android:targetSdkVersion="25" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:allowBackup="true"
+        android:debuggable="true"
+        android:icon="@mipmap/maquinaria"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity android:name="mx.grupohi.almacenes.controlmaquinaria.LoginActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="mx.grupohi.almacenes.controlmaquinaria.ObraActivity"
+            android:label="@string/tittle_activity_obra" />
+        <activity
+            android:name="mx.grupohi.almacenes.controlmaquinaria.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="mx.grupohi.almacenes.controlmaquinaria.ActividadActivity"
+            android:label="@string/tittle_activity_actividad"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="mx.grupohi.almacenes.controlmaquinaria.ActividadesActivity"
+            android:label="@string/tittle_activity_actividades"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="mx.grupohi.almacenes.controlmaquinaria.ActividadesIniciadasActivity"
+            android:label="@string/tittle_activity_iniciadas"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="mx.grupohi.almacenes.controlmaquinaria.CierreActivity"
+            android:label="@string/tittle_activity_cierre"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="mx.grupohi.almacenes.controlmaquinaria.AlertDialogActivity"
+            android:label="Sesion"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="mx.grupohi.almacenes.controlmaquinaria.Alarma.NotificacionActividad"
+            android:label="Details of notification"
+            android:parentActivityName="mx.grupohi.almacenes.controlmaquinaria.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+        <receiver android:name="mx.grupohi.almacenes.controlmaquinaria.Alarma.AlarmReciever" />
+
+        <service
+            android:name="mx.grupohi.almacenes.controlmaquinaria.ActividadesService"
+            android:enabled="true" >
+        </service>
+    </application>
+
+</manifest>

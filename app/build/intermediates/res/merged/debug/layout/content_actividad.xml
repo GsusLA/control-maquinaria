@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="mx.grupohi.almacenes.controlmaquinaria.ActividadActivity"
+    tools:showIn="@layout/app_bar_actividad">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="336dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:text="Seleccionar Maquinaria"
+            android:layout_weight="0.66" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Spinner
+            android:id="@+id/sp_actividadMaquinaria"
+            android:layout_width="match_parent"
+            android:layout_height="35dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="5dp">
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha:  "
+        android:textStyle="bold"
+            android:textSize="18sp"/>
+        <TextView
+            android:id="@+id/tv_actividadFecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00/Feb/2017"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="15dp">
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="160dp"
+        android:layout_height="wrap_content">
+
+        <AutoCompleteTextView
+            android:id="@+id/actividadHorometro"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:hint="Horometro Inicial"
+            android:inputType="numberDecimal"
+            android:maxLines="1" />
+
+    </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="160dp"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/actividadKilometraje"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:hint="Kilometraje Inicial"
+                android:inputType="numberDecimal"
+                android:maxLines="1" />
+
+        </android.support.design.widget.TextInputLayout>
+
+</LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="Operador"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.23"
+            android:padding="10dp"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+            android:textStyle="normal|bold" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:id="@+id/et_actividadOperador"
+            android:layout_weight="0.37"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+            android:textSize="14sp"
+            android:textStyle="normal|bold" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="Observaciones"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.23"
+            android:padding="10dp"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+            android:textStyle="normal|bold" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:id="@+id/et_actividadObservaciones"
+            android:layout_weight="0.37"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1">
+
+        <Button
+            android:text="Cancelar"
+            android:textAlignment="center"
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:id="@+id/btn_actividadCancelar"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:textSize="20sp" />
+        <Button
+            android:text="Guardar"
+            android:textAlignment="center"
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:id="@+id/btn_actividadGuardar"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,7 @@
+#Tue May 09 15:19:01 CDT 2017
+base.0=C\:\\Users\\LERDES2\\Documents\\GitProyects\\ControlMaquinaria\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_aa3a61865144df30842f89dbc07c0be6fbb42d20
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=C\:\\Users\\LERDES2\\Documents\\GitProyects\\ControlMaquinaria\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_c5b064469ce0d95cad4540436ce005d08aa8ae49\\classes.dex
+base.1=C\:\\Users\\LERDES2\\Documents\\GitProyects\\ControlMaquinaria\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_c5b064469ce0d95cad4540436ce005d08aa8ae49
+file.0=C\:\\Users\\LERDES2\\Documents\\GitProyects\\ControlMaquinaria\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_aa3a61865144df30842f89dbc07c0be6fbb42d20\\classes.dex
